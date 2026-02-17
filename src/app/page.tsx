@@ -58,9 +58,9 @@ function HeroSection() {
 
         {/* Sub-headline */}
         <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto mb-10 leading-relaxed">
-          We are organizing a Founding Family cohort to bring{" "}
-          <strong className="text-deep-navy">Alpha</strong>—the school producing the
-          top 1% of academic outcomes globally—to the Eastern Shore.
+          We are organizing a Founding Family cohort to bring a new campus of{" "}
+          <strong className="text-deep-navy">Alpha</strong>—the school with academic outcomes in the
+          top 0.1% of all U.S. schools—to the Eastern Shore.
         </p>
 
         {/* CTA */}
@@ -280,7 +280,7 @@ function AlphaModelSection() {
           {/* Component 1 */}
           <Card className="border-0 shadow-lg shadow-slate-200/50 rounded-2xl overflow-hidden">
             <CardContent className="p-0">
-              <div className="bg-gradient-to-br from-deep-navy to-deep-navy-light p-8 sm:p-10">
+              <div className="bg-gradient-to-br from-deep-navy to-deep-navy-light p-8 sm:p-10 rounded-2xl">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-12 h-12 rounded-xl bg-alpha-orange/20 flex items-center justify-center">
                     <Brain className="h-6 w-6 text-alpha-orange" />
@@ -506,8 +506,8 @@ function ApplicationSection() {
                   <Label className="text-sm font-semibold text-deep-navy">
                     Current School Setting <span className="text-alpha-orange">*</span>
                   </Label>
-                  <div className="grid grid-cols-2 gap-3">
-                    {["Public", "Private"].map((option) => (
+                  <div className="grid grid-cols-3 gap-3">
+                    {["Public", "Private", "Homeschool"].map((option) => (
                       <label
                         key={option}
                         className="relative flex items-center justify-center cursor-pointer"
@@ -582,7 +582,7 @@ function ApplicationSection() {
                 {/* Actively exploring school change */}
                 <div className="space-y-3">
                   <Label className="text-sm font-semibold text-deep-navy">
-                    Are you actively exploring a school change for 2026–2027?{" "}
+                    Are you actively looking for a new school?{" "}
                     <span className="text-alpha-orange">*</span>
                   </Label>
                   <div className="grid grid-cols-3 gap-3">

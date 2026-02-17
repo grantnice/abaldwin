@@ -20,7 +20,6 @@ import {
   Rocket,
   Brain,
   Mic,
-  TrendingUp,
   ArrowRight,
   CheckCircle2,
   ExternalLink,
@@ -69,7 +68,7 @@ function HeroSection() {
           onClick={scrollToApplication}
           className="bg-alpha-orange hover:bg-alpha-orange-hover text-white text-lg px-10 py-7 rounded-xl shadow-lg shadow-alpha-orange/25 hover:shadow-xl hover:shadow-alpha-orange/30 transition-all duration-300 cursor-pointer"
         >
-          Apply for the Founding Cohort
+          Share Interest in Founding Cohort
           <ArrowRight className="ml-2 h-5 w-5" />
         </Button>
 
@@ -381,64 +380,6 @@ function AlphaModelSection() {
 }
 
 /* ──────────────────────────────────────────────
-   LOCAL CHAMPION SECTION
-   ────────────────────────────────────────────── */
-function LocalChampionSection() {
-  return (
-    <section className="py-24 sm:py-32 bg-slate-50">
-      <div className="max-w-4xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl sm:text-5xl font-bold text-deep-navy tracking-tight mb-4">
-            Bringing the Future to Daphne/Fairhope.
-          </h2>
-        </div>
-
-        <div className="bg-white rounded-2xl shadow-lg shadow-slate-200/50 p-8 sm:p-12">
-          <div className="flex flex-col sm:flex-row items-start gap-8">
-            {/* Profile Avatar */}
-            <div className="flex-shrink-0">
-              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-deep-navy to-deep-navy-light flex items-center justify-center">
-                <span className="text-2xl font-bold text-white">GN</span>
-              </div>
-            </div>
-
-            {/* Profile Content */}
-            <div className="flex-1">
-              <div className="mb-1">
-                <h3 className="text-2xl font-bold text-deep-navy">Grant Nice</h3>
-                <p className="text-alpha-orange font-medium text-sm uppercase tracking-wider">
-                  Launch Lead
-                </p>
-              </div>
-
-              <div className="mt-6 space-y-4">
-                <p className="text-slate-600 leading-relaxed text-lg">
-                  &ldquo;I am a local economist and engineer. I&apos;ve looked at the
-                  data, and the traditional model is broken. I am organizing this
-                  launch because I want my own children to have access to the best
-                  education in the world without having to move to Austin or Silicon
-                  Valley.&rdquo;
-                </p>
-
-                <div className="bg-alpha-orange/5 border border-alpha-orange/20 rounded-xl p-6 mt-6">
-                  <div className="flex items-start gap-3">
-                    <TrendingUp className="h-5 w-5 text-alpha-orange mt-0.5 flex-shrink-0" />
-                    <p className="text-deep-navy font-medium">
-                      We need 10 families to unlock a campus here. This is your
-                      chance to be a founder.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ──────────────────────────────────────────────
    APPLICATION SECTION
    ────────────────────────────────────────────── */
 function ApplicationSection() {
@@ -463,12 +404,6 @@ function ApplicationSection() {
     });
   };
 
-  const motivationOptions = [
-    "Academic Velocity",
-    "Entrepreneurial Skills",
-    "Avoiding Burnout",
-  ];
-
   return (
     <section id="application" className="py-24 sm:py-32 bg-white">
       <div className="max-w-3xl mx-auto px-6">
@@ -488,21 +423,38 @@ function ApplicationSection() {
           <CardContent className="p-8 sm:p-10">
             {!submitted ? (
               <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Parent Name */}
-                <div className="space-y-2">
-                  <Label
-                    htmlFor="parentName"
-                    className="text-sm font-semibold text-deep-navy"
-                  >
-                    Parent Name <span className="text-alpha-orange">*</span>
-                  </Label>
-                  <Input
-                    id="parentName"
-                    name="parentName"
-                    required
-                    placeholder="Full name"
-                    className="h-12 rounded-xl border-slate-200 focus:border-alpha-orange focus:ring-alpha-orange"
-                  />
+                {/* Name - First + Last */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label
+                      htmlFor="firstName"
+                      className="text-sm font-semibold text-deep-navy"
+                    >
+                      First Name <span className="text-alpha-orange">*</span>
+                    </Label>
+                    <Input
+                      id="firstName"
+                      name="firstName"
+                      required
+                      placeholder="First name"
+                      className="h-12 rounded-xl border-slate-200 focus:border-alpha-orange focus:ring-alpha-orange"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label
+                      htmlFor="lastName"
+                      className="text-sm font-semibold text-deep-navy"
+                    >
+                      Last Name <span className="text-alpha-orange">*</span>
+                    </Label>
+                    <Input
+                      id="lastName"
+                      name="lastName"
+                      required
+                      placeholder="Last name"
+                      className="h-12 rounded-xl border-slate-200 focus:border-alpha-orange focus:ring-alpha-orange"
+                    />
+                  </div>
                 </div>
 
                 {/* Email */}
@@ -511,7 +463,7 @@ function ApplicationSection() {
                     htmlFor="email"
                     className="text-sm font-semibold text-deep-navy"
                   >
-                    Email Address <span className="text-alpha-orange">*</span>
+                    Email <span className="text-alpha-orange">*</span>
                   </Label>
                   <Input
                     id="email"
@@ -523,56 +475,125 @@ function ApplicationSection() {
                   />
                 </div>
 
-                {/* LinkedIn */}
-                <div className="space-y-2">
-                  <Label
-                    htmlFor="linkedin"
-                    className="text-sm font-semibold text-deep-navy"
-                  >
-                    LinkedIn Profile{" "}
-                    <span className="text-slate-400 font-normal">(Optional)</span>
-                  </Label>
-                  <Input
-                    id="linkedin"
-                    name="linkedin"
-                    placeholder="linkedin.com/in/yourprofile"
-                    className="h-12 rounded-xl border-slate-200 focus:border-alpha-orange focus:ring-alpha-orange"
-                  />
-                </div>
-
-                {/* Child Age/Grade */}
-                <div className="space-y-2">
-                  <Label
-                    htmlFor="childInfo"
-                    className="text-sm font-semibold text-deep-navy"
-                  >
-                    Child&apos;s Age/Grade{" "}
-                    <span className="text-alpha-orange">*</span>
-                  </Label>
-                  <Input
-                    id="childInfo"
-                    name="childInfo"
-                    required
-                    placeholder="e.g., Age 8, 3rd Grade"
-                    className="h-12 rounded-xl border-slate-200 focus:border-alpha-orange focus:ring-alpha-orange"
-                  />
-                </div>
-
-                {/* Motivation */}
+                {/* Interest Level */}
                 <div className="space-y-3">
                   <Label className="text-sm font-semibold text-deep-navy">
-                    What is your primary motivation?{" "}
-                    <span className="text-alpha-orange">*</span>
+                    Your Interest Level <span className="text-alpha-orange">*</span>
                   </Label>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                    {motivationOptions.map((option) => (
+                  <div className="grid grid-cols-2 gap-3">
+                    {["I'm Convinced!", "I'm Intrigued!"].map((option) => (
                       <label
                         key={option}
                         className="relative flex items-center justify-center cursor-pointer"
                       >
                         <input
                           type="radio"
-                          name="motivation"
+                          name="interestLevel"
+                          value={option}
+                          required
+                          className="peer sr-only"
+                        />
+                        <div className="w-full text-center py-3 px-4 rounded-xl border-2 border-slate-200 text-sm font-medium text-slate-600 peer-checked:border-alpha-orange peer-checked:bg-alpha-orange/5 peer-checked:text-alpha-orange transition-all duration-200 hover:border-slate-300">
+                          {option}
+                        </div>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Current School Setting */}
+                <div className="space-y-3">
+                  <Label className="text-sm font-semibold text-deep-navy">
+                    Current School Setting <span className="text-alpha-orange">*</span>
+                  </Label>
+                  <div className="grid grid-cols-2 gap-3">
+                    {["Public", "Private"].map((option) => (
+                      <label
+                        key={option}
+                        className="relative flex items-center justify-center cursor-pointer"
+                      >
+                        <input
+                          type="radio"
+                          name="schoolSetting"
+                          value={option}
+                          required
+                          className="peer sr-only"
+                        />
+                        <div className="w-full text-center py-3 px-4 rounded-xl border-2 border-slate-200 text-sm font-medium text-slate-600 peer-checked:border-alpha-orange peer-checked:bg-alpha-orange/5 peer-checked:text-alpha-orange transition-all duration-200 hover:border-slate-300">
+                          {option}
+                        </div>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Town */}
+                <div className="space-y-2">
+                  <Label
+                    htmlFor="town"
+                    className="text-sm font-semibold text-deep-navy"
+                  >
+                    What town do you live in? <span className="text-alpha-orange">*</span>
+                  </Label>
+                  <Input
+                    id="town"
+                    name="town"
+                    required
+                    placeholder="e.g., Fairhope, Daphne, Spanish Fort"
+                    className="h-12 rounded-xl border-slate-200 focus:border-alpha-orange focus:ring-alpha-orange"
+                  />
+                </div>
+
+                {/* Number of Kids + Grade */}
+                <div className="space-y-2">
+                  <Label
+                    htmlFor="kidsAndGrade"
+                    className="text-sm font-semibold text-deep-navy"
+                  >
+                    Number of Kids + Current Grade <span className="text-alpha-orange">*</span>
+                  </Label>
+                  <Textarea
+                    id="kidsAndGrade"
+                    name="kidsAndGrade"
+                    required
+                    placeholder="e.g., 2 kids — 3rd grade and 5th grade"
+                    className="rounded-xl border-slate-200 focus:border-alpha-orange focus:ring-alpha-orange min-h-[80px]"
+                  />
+                </div>
+
+                {/* What are you looking for */}
+                <div className="space-y-2">
+                  <Label
+                    htmlFor="lookingFor"
+                    className="text-sm font-semibold text-deep-navy"
+                  >
+                    What are you looking for in a new school? What issues are you wanting to solve for?{" "}
+                    <span className="text-alpha-orange">*</span>
+                  </Label>
+                  <Textarea
+                    id="lookingFor"
+                    name="lookingFor"
+                    required
+                    placeholder="Tell us what matters most to your family..."
+                    className="rounded-xl border-slate-200 focus:border-alpha-orange focus:ring-alpha-orange min-h-[100px]"
+                  />
+                </div>
+
+                {/* Actively exploring school change */}
+                <div className="space-y-3">
+                  <Label className="text-sm font-semibold text-deep-navy">
+                    Are you actively exploring a school change for 2026–2027?{" "}
+                    <span className="text-alpha-orange">*</span>
+                  </Label>
+                  <div className="grid grid-cols-3 gap-3">
+                    {["Yes", "No", "Just Exploring"].map((option) => (
+                      <label
+                        key={option}
+                        className="relative flex items-center justify-center cursor-pointer"
+                      >
+                        <input
+                          type="radio"
+                          name="exploringChange"
                           value={option}
                           required
                           className="peer sr-only"
@@ -608,23 +629,6 @@ function ApplicationSection() {
                       </label>
                     ))}
                   </div>
-                </div>
-
-                {/* Additional Notes */}
-                <div className="space-y-2">
-                  <Label
-                    htmlFor="notes"
-                    className="text-sm font-semibold text-deep-navy"
-                  >
-                    Anything else?{" "}
-                    <span className="text-slate-400 font-normal">(Optional)</span>
-                  </Label>
-                  <Textarea
-                    id="notes"
-                    name="notes"
-                    placeholder="Tell us about your family and what excites you about Alpha..."
-                    className="rounded-xl border-slate-200 focus:border-alpha-orange focus:ring-alpha-orange min-h-[100px]"
-                  />
                 </div>
 
                 {/* Error */}
@@ -830,7 +834,6 @@ export default function Home() {
       <HeroSection />
       <ExtremeOutcomesSection />
       <AlphaModelSection />
-      <LocalChampionSection />
       <ApplicationSection />
       <HelpfulLinksSection />
       <Footer />

@@ -59,7 +59,7 @@ function HeroSection() {
         {/* Sub-headline */}
         <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto mb-10 leading-relaxed">
           We are organizing a Founding Family cohort to bring a new campus of{" "}
-          <strong className="text-deep-navy">Alpha</strong>—the school with academic outcomes in the
+          <a href="https://alpha.school/the-program/#learn" target="_blank" rel="noopener noreferrer" className="text-deep-navy font-bold underline decoration-alpha-orange decoration-2 underline-offset-4 hover:text-alpha-orange transition-colors">Alpha</a>—the school with academic outcomes in the
           top 0.1% of all U.S. schools—to the Eastern Shore.
         </p>
 
@@ -120,7 +120,7 @@ function ExtremeOutcomesSection() {
       number: "2x",
       label: "Faster Learning",
       description:
-        "Alpha students learn twice the material in the same amount of time as traditional peers. Independent AI analysis of MAP data found growth rates of up to 5x the national average in some grade levels.",
+        "Alpha students achieve twice the amount of learning in only 2 hours a day. Independent AI analysis of MAP data found growth rates of up to 5x the national average in some grade levels.",
       reference: "NWEA MAP Growth Fall '25–Winter '26, verified by Gemini & Claude analysis.",
       icon: Zap,
     },

@@ -380,6 +380,59 @@ function AlphaModelSection() {
 }
 
 /* ──────────────────────────────────────────────
+   VIDEO SECTION
+   ────────────────────────────────────────────── */
+function VideoSection() {
+  const videos = [
+    {
+      id: "ENdAWT6N0V4",
+      title: "2 Hour Learning: How Our Schools Work",
+    },
+    {
+      id: "ULpQs-5LMvE",
+      title: "Self-Paced Learning at Alpha",
+    },
+  ];
+
+  return (
+    <section className="py-24 sm:py-32 bg-slate-50">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl sm:text-5xl font-bold text-deep-navy tracking-tight mb-4">
+            See Alpha in Action.
+          </h2>
+          <p className="text-xl text-slate-500 max-w-2xl mx-auto">
+            Watch how 2-Hour Learning works and what a day at Alpha looks like.
+          </p>
+        </div>
+
+        {/* Video Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {videos.map((video) => (
+            <div key={video.id} className="space-y-4">
+              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lg shadow-slate-200/50">
+                <iframe
+                  src={`https://www.youtube.com/embed/${video.id}`}
+                  title={video.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full"
+                />
+              </div>
+              <h3 className="text-lg font-semibold text-deep-navy text-center">
+                {video.title}
+              </h3>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ──────────────────────────────────────────────
    APPLICATION SECTION
    ────────────────────────────────────────────── */
 function ApplicationSection() {
@@ -834,6 +887,7 @@ export default function Home() {
       <HeroSection />
       <ExtremeOutcomesSection />
       <AlphaModelSection />
+      <VideoSection />
       <ApplicationSection />
       <HelpfulLinksSection />
       <Footer />
